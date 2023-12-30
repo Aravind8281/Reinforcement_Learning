@@ -9,3 +9,17 @@ Key Concepts
 * Exploration vs. Exploitation: Balancing exploration of new strategies and exploitation of known ones is crucial for effective learning.
 
 Explore the provided code and resources to delve into the dynamic world of reinforcement learning. Feel free to contribute and enhance our understanding of this powerful machine learning paradigm.
+
+The main API methods that users of this class need to know are:
+
+* step() - Updates an environment with actions returning the next agent observation, the reward for taking that actions, if the environment has terminated or truncated due to the latest action and information from the environment about the step, i.e. metrics, debug info.
+* reset() - Resets the environment to an initial state, required before calling step. Returns the first agent observation for an episode and information, i.e. metrics, debug info.
+* render() - Renders the environments to help visualise what the agent see, examples modes are “human”, “rgb_array”, “ansi” for text.
+* close() - Closes the environment, important when external software is used, i.e. pygame for rendering, databases
+
+# Environments have additional attributes for users to understand the implementation
+
+* action_space - The Space object corresponding to valid actions, all valid actions should be contained within the space.
+* observation_space - The Space object corresponding to valid observations, all valid observations should be contained within the space.
+* reward_range - A tuple corresponding to the minimum and maximum possible rewards for an agent over an episode. The default reward range is set to
+* spec - An environment spec that contains the information used to initialize the environment from gymnasium.make()
